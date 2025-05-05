@@ -73,7 +73,7 @@ clean:
 #########
 
 .PHONY:	xlisp
-xlisp:		$(BINDIR) $(BINDIR)/xlisp$(EXT)
+xlisp:	clean	$(BINDIR) $(BINDIR)/xlisp$(EXT)
 
 XLISPOBJS=\
 $(XLISPOBJDIR)/xlisp.o
@@ -135,4 +135,3 @@ $(OBJSUBDIRS):	$(OBJDIR)
 
 $(DIRS) $(OBJSUBDIRS):
 	$(MKDIR) $@
-
