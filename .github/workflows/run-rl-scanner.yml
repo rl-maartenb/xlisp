@@ -6,6 +6,7 @@ on:
     branches: [ "master", "dev" ]
   pull_request:
     branches: [ "master", "dev" ]
+    types: [opened, synchronize, edited, ready_for_review, reopened]
 
 jobs:
   checkout-build-scan-action:
@@ -32,8 +33,8 @@ jobs:
 
         run: |
           # Prepare the build process
-          make 2>&1 | tee build-log.txt
-          echo "build-log=$( cat build-log/txt )" >>$GITHUB_OUTPUT
+          make | tee build-log.txt
+          echo "build-log=$( cat build-log.txt )" >>$GITHUB_OUTPUT
           echo "scanfile=$( ls bin/xlisp )" >> $GITHUB_OUTPUT
 
       # Use the rl-scanner-composite action
