@@ -34,8 +34,8 @@ jobs:
         run: |
           # Prepare the build process
           make | tee build-log.txt
-          echo "build-log=$( cat build-log.txt )" >>$GITHUB_OUTPUT
-          echo "scanfile=$( ls bin/xlisp )" >> $GITHUB_OUTPUT
+          echo "build-log=build-log.txt" >>$GITHUB_OUTPUT
+          echo "scanfile=bin/xlisp"      >> $GITHUB_OUTPUT
 
       # Use the rl-scanner-composite action
       - name: Scan the build artifact
@@ -45,7 +45,7 @@ jobs:
           RLSECURE_ENCODED_LICENSE: ${{ secrets.RLSECURE_ENCODED_LICENSE }}
           RLSECURE_SITE_KEY: ${{ secrets.RLSECURE_SITE_KEY }}
 
-        uses: rl-maartenb/gh-action-rl-scanner-composite-test@v0.0.2
+        uses: rl-maartenb/gh-action-rl-scanner-composite-test@v0.0.3
         with:
           artifact-to-scan: ${{ steps.build.outputs.scanfile }}
           report-path: "My_Report_Dir"
