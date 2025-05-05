@@ -3,9 +3,9 @@ run-name: ReversingLabs rl-scanner
 
 on:
   push:
-    branches: [ "main", "dev" ]
+    branches: [ "master", "dev" ]
   pull_request:
-    branches: [ "main", "dev" ]
+    branches: [ "master", "dev" ]
 
 jobs:
   checkout-build-scan-action:
