@@ -32,7 +32,8 @@ jobs:
 
         run: |
           # Prepare the build process
-          make
+          make 2>&1 | tee build-log.txt
+          echo "build-log=$( cat build-log/txt )" >>$GITHUB_OUTPUT
           echo "scanfile=$( ls bin/xlisp )" >> $GITHUB_OUTPUT
 
       # Use the rl-scanner-composite action
